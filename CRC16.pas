@@ -29,7 +29,7 @@
 
   Version 1.0 (2026-06-21)
 
-  Last change 2026-06-21
+  Last change 2026-06-22
 
   ©2026 František Milt
 
@@ -202,7 +202,7 @@ type
     Aliases:        String;     // name aliasses, separated by comma (,)
     Polynomial:     TCRC16Sys;  // polynomial with highest bit omitted
     RefPolynomial:  TCRC16Sys;  // polynomial with reflected bit order and original highest bit omitted
-    FullPolynomial: UInt32;     // full polynomial (only lower 9bits are to be observed)
+    FullPolynomial: UInt32;     // full polynomial (only lower 17 bits are to be observed)
     InitialValue:   TCRC16;     // initial value of CRC register
     ReflectIn:      Boolean;    // order in which bits within input bytes are processed (true = LSB, false = MSB)
     ReflectOut:     Boolean;    // resulting CRC-16 is bit-swapped before presentation
@@ -852,13 +852,6 @@ uses
 {===============================================================================
     Internals implementation
 ===============================================================================}
-
-Function ConsumeArgs(const Args: array of const): Integer;
-begin
-Result := Length(Args);
-end;
-
-//------------------------------------------------------------------------------
 
 Function SwapEndian(Value: TCRC16Sys): TCRC16Sys; overload;
 begin
