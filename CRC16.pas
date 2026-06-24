@@ -29,7 +29,7 @@
 
   Version 1.0 (2026-06-21)
 
-  Last change 2026-06-22
+  Last change 2026-06-24
 
   ©2026 František Milt
 
@@ -176,6 +176,16 @@ type
                                    TCRC16Hash                                   
 --------------------------------------------------------------------------------
 ===============================================================================}
+{
+  Hardcoded implementation of CRC-16/ARC, following parameters are used within
+  the calculation:
+
+                  polynomial        0x18005
+               initial value        0x00000000
+             final xor value        0x00000000
+       input bits reflection        True
+      output bits reflection        True
+}
 {===============================================================================
     TCRC16Hash - class declaration
 ===============================================================================}
